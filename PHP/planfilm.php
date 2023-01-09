@@ -8,6 +8,7 @@ $room = $_POST['room'];
 $seatsbig = 90;
 $seatssmall = 60;
 $reserved = false;
+$notreserved = null;
 
 
 
@@ -62,13 +63,15 @@ if ($reserved) {
 
 } else {
 
-        $stmtcalendar = $conn->prepare("INSERT INTO calendar (moviesid, starttime,endtime,roomid)
-                    VALUES(:moviesid, :starttime,:endtime,:roomid)");
+        $stmtcalendar = $conn->prepare("INSERT INTO calendar (moviesid, starttime,endtime,roomid,reserved)
+                    VALUES(:moviesid, :starttime,:endtime,:roomid,:reserved)");
         $stmtcalendar->bindParam(':moviesid', $moviesid);
         $stmtcalendar->bindParam(':starttime', $starttime);
         $stmtcalendar->bindParam(':endtime', $endtime);
         $stmtcalendar->bindParam(':roomid', $room);
-        $stmtcalendar->execute();
+        $stmtcalendar->bindParam(':reserved', $notreserved);
+
+    $stmtcalendar->execute();
 
 }
 

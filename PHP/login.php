@@ -7,12 +7,13 @@ $password = $_POST['password'];
 
 
 
-
 $sql = "SELECT role, userid FROM user WHERE email = :email AND password = :password";
 $query = $conn->prepare($sql);
 $query->bindParam(':email', $email);
 $query->bindParam(':password', $password);
 $query->execute();
+
+
 
 if ($query->rowCount() == 1) {
     $result = $query->fetch(PDO::FETCH_ASSOC);

@@ -44,7 +44,7 @@ if (isset($_SESSION['notification'])) {
                 </tr>
                 </thead>
                 <?php if ($stmt->rowCount() > 0) {
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {?>ww
                         <tbody>
                         <tr>
                             <td><?= $row["title"] ?></td>
