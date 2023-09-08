@@ -76,5 +76,9 @@ if ($reserved) {
 }
 
 
+
+
+
+
 header('location: ../index.php?page=planning');
 
